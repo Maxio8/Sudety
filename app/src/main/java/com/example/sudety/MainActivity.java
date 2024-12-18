@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Initialize UI elements
+
         likesCounter = findViewById(R.id.likesCounter);
         Button likeButton = findViewById(R.id.likeButton);
         Button removeButton = findViewById(R.id.removeButton);
@@ -33,13 +33,13 @@ public class MainActivity extends AppCompatActivity {
         Button showParticipantButton = findViewById(R.id.showParticipantButton);
         messageArea = findViewById(R.id.messageArea);
 
-        // Like button functionality
+
         likeButton.setOnClickListener(view -> {
             likesCount++;
             updateLikesCounter();
         });
 
-        // Remove button functionality
+
         removeButton.setOnClickListener(view -> {
             if (likesCount > 0) {
                 likesCount--;
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Save button functionality
+
         saveButton.setOnClickListener(view -> {
             String email = emailInput.getText().toString();
             String password = passwordInput.getText().toString();
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
             messageArea.setText("Zarejestrowano: " + email);
         });
 
-        // Show participant button functionality
+
         showParticipantButton.setOnClickListener(view -> {
             if (TextUtils.isEmpty(lastRegisteredEmail)) {
                 messageArea.setText("Brak zarejestrowanego uczestnika");
@@ -77,12 +77,12 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    // Update the likes counter text
+
     private void updateLikesCounter() {
         likesCounter.setText(likesCount + " polubień");
     }
 
-    // Validate email format
+
     private boolean isValidEmail(String email) {
         return email.contains("@") && !TextUtils.isEmpty(email);
     }
